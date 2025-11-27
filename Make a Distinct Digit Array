@@ -1,0 +1,33 @@
+// User function Template for Java
+
+class Solution {
+    public int[] common_digits(int[] nums) {
+        // code here
+        int val[] = new int[10];
+        
+        for(int num:nums){
+            while(num > 0){
+                val[num%10]=1;
+                num /= 10;
+            }
+        }
+        
+        int count=0;
+        for(int i=0;i < 10;i++){
+            if(val[i]==1){
+                count++;
+            }
+        }
+        
+        int[] res=new int[count];
+        int intex =0;
+        for(int i=0;i < 10;i++){
+            if(val[i]==1){
+                res[intex++]=i;
+                
+            }
+        }
+        
+        return res;
+    }
+}
